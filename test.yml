@@ -1,0 +1,19 @@
+---
+  - name: "print host info"
+    hosts: all
+    gather_facts: no
+    tasks:
+      - name: print
+        debug:
+          msg: "{{hostvars[inventory_hostname]}}"
+
+      
+      - name: linux ping
+        ping:
+        when: inventory_hostname in groups["centos"]
+        tags: linuxping
+
+      - name: win ping  
+        win_ping:
+        when: inventory_hostname in groups["windows"]
+        tags: winping
