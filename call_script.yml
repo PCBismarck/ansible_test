@@ -6,5 +6,5 @@
       - name: print
         script: "hello.py"
         args:
-          executable: "{{ 'python3' if (inventory_hostname in groups['centos']) else 'C:\ProgramData\Anaconda3\python.exe' }}"
+          executable: "{{ 'python3' if (inventory_hostname in groups['centos']) else 'C:\\ProgramData\\Anaconda3\\python.exe' }}"
           
