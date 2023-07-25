@@ -1,0 +1,10 @@
+---
+  - name: "print host info"
+    hosts: all
+    gather_facts: no
+    tasks:
+      - name: print
+        script: "hello.py"
+        args:
+          executable: "{{ 'python3' if (inventory_hostname in groups['centos']) else 'C:\ProgramData\Anaconda3\python.exe' }}"
+          
